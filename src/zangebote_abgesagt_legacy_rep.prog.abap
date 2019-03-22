@@ -181,8 +181,8 @@ LOOP AT mismatch ASSIGNING <mismatch>
 ENDLOOP.
 
 
-* <alt_summe> mit der ermittelten Summe in der Klasse zangebote_abgesagt vergleichen
-* @param mismatch Datensaetze, die nicht uebereinstimmen
+*! alt_summe mit der ermittelten Summe in der Klasse zangebote_abgesagt vergleichen
+*! @parameter mismatch | Datensaetze, die nicht uebereinstimmen
 FORM vergleich_algorithmen USING alt_summe TYPE zangebote_abgesagt=>out_summe_kunde_artikel
   CHANGING mismatch TYPE _mismatch
   RAISING zcx_angebot_abgesagt.
