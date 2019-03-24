@@ -2,7 +2,7 @@
 Dieses Repository soll ein mögliches Verfahren aufzeigen, um Legacy Code durch eine Clean Code
 Implementierung zu ersetzen. Das Verhalten der Legacy Code Implementierung ist schwierig 
 zu analysieren. Daher wird der Legacy Code dahin gehend modifiziert, dass dieser mit der Clean-Code Implementierung verglichen werden kann.
-Angewendet findet dieses Verfahren daher nur in Algorithmen, die Daten auschließlich anzeigen und keine Modifikationen an persistenten Daten vornehmen.
+Anwendung findet dieses Verfahren daher nur in Algorithmen, die Daten auschließlich anzeigen und keine Modifikationen an persistenten Daten vornehmen.
 
 ## Die Auswertung ##
 Das Repository enthält 2 Programme. Einmal das Programm ```zangebote_abgesagt_legacy```, das eine Auswertung über abgesagte Angebote analog zu den Anforderungen im Repository [https://github.com/germanysources/clean_code_demo](https://github.com/germanysources/clean_code_demo) dem Benutzer im ALV-Grid darstellt. Dieses Programm enthält viele Merkmale, die für Legacy Code typisch sind. Unter anderem wurde eine Einheitenumrechnung mit einer case-when Bedingung gelöst.
