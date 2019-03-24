@@ -48,7 +48,7 @@ Die Anzeige der Daten im ALV-Grid wird deaktiviert.
 ```
 
 ### 3.Schritt ###
-Die Subroutine ```vergleich_algorithmen```, die Struktur ```_mismatch``` und der Tabellentyp ```_mismatch``` wird dem Programm ```zangebote_abgesagt_legacy_rep``` hinzugefügt. Die Subroutine ```vergleich_algorithmen``` vergleicht die Legacy Code Implementierung mit der Clean Code Implementierung.
+Die Subroutine ```vergleich_algorithmen```, die Struktur ```_mismatch``` und der Tabellentyp ```_mismatch``` werden dem Programm ```zangebote_abgesagt_legacy_rep``` hinzugefügt. Die Subroutine ```vergleich_algorithmen``` vergleicht die Legacy Code Implementierung mit der Clean Code Implementierung.
 ```ABAP
 TYPES: BEGIN OF __mismatch,
   alt TYPE zangebot_summe_kunde_artikel,
