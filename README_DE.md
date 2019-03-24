@@ -1,11 +1,11 @@
 # Sinn #
 Dieses Repository soll ein mögliches Verfahren aufzeigen, um Legacy Code durch eine Clean Code
 Implementierung zu ersetzen. Das Verhalten der Legacy Code Implementierung ist schwierig 
-zu analysieren. Daher wird der Legacy Code dahingehend modifiziert, dass dieser mit der Clean-Code Implementierung vergliechen werden kann.
-Angewendet kann dieses Verfahren daher nur auf Algorithmen, die Daten auschließlich anzeigen und keine Modifikationen an persistenten Daten vornehmen.
+zu analysieren. Daher wird der Legacy Code dahin gehend modifiziert, dass dieser mit der Clean-Code Implementierung verglichen werden kann.
+Angewendet findet dieses Verfahren daher nur in Algorithmen, die Daten auschließlich anzeigen und keine Modifikationen an persistenten Daten vornehmen.
 
 ## Die Auswertung ##
-Das Repository enthält 2 Programme. Einmal das Programm ```ZANGEBOTE_ABGESAGT_LEGACY```, das eine Auswertung über abgesagte Angebote analog zu den Anforderungen im Repository [https://github.com/germanysources/clean_code_demo](https://github.com/germanysources/clean_code_demo) dem Benutzer im ALV-Grid darstellt. Dieses Programm enthält viele Merkmale, die für Legacy Code typisch sind. Unter anderem wurde eine Einheitenumrechnung mit einer case-when Bedingung gelöst.
+Das Repository enthält 2 Programme. Einmal das Programm ```zangebote_abgesagt_legacy```, das eine Auswertung über abgesagte Angebote analog zu den Anforderungen im Repository [https://github.com/germanysources/clean_code_demo](https://github.com/germanysources/clean_code_demo) dem Benutzer im ALV-Grid darstellt. Dieses Programm enthält viele Merkmale, die für Legacy Code typisch sind. Unter anderem wurde eine Einheitenumrechnung mit einer case-when Bedingung gelöst.
 Diese Enheitenumrechnung soll durch allgemeingültige Einheitenumrechnung, die SAP mit dem Funktionsbaustein ```MATERIAL_UNIT_CONVERSION``` bereitstellt, ersetzt werden.
 
 ### Bisherige Einheitenumrechnung ###
@@ -27,13 +27,13 @@ ENDCASE.
 ### Idee ###
 Im Repository [https://github.com/germanysources/clean_code_demo](https://github.com/germanysources/clean_code_demo) liegt bereits die Clean Code Implementierung.
 Wir wollen das Verhalten des Legacy Codes mit dem Verhalten der Clean Code Implementierung vergleichen, um Differenzen zwischen den beiden Algorithmen zu finden. So können wir sichergehen, dass die Clean Code Implementierung kein bestehendes Verhalten der Legacy Code Implementierung ändert.
-Unit-Tests sind im Legacy Code nur schwer möglich. Da die beiden Implementierungen nur interne Tabellen für die Anzeige im ALV-Grid bereitstellen, können diese Daten vergliechen werden.
+Unit-Tests sind im Legacy Code nur schwer möglich. Da die beiden Implementierungen nur interne Tabellen für die Anzeige im ALV-Grid bereitstellen, können diese Daten verglichen werden.
 
 ### 1.Schritt ###
 Das Programm ```zangebote_abgesagt_legacy``` wird in das Programm ```zangebote_abgesagt_legacy_rep``` kopiert. 
 
 ### 2.Schritt ###
-Die Anzeige der Daten im Alv-Grid wird deaktiviert.
+Die Anzeige der Daten im ALV-Grid wird deaktiviert.
 ```ABAP
 " Anzeige im ALV-Grid deaktivieren
 "  ls_variant-report = sy-repid.
@@ -165,7 +165,7 @@ ENDLOOP.
 ```
 
 ### 5.Schritt ###
-Der Vergleichsreport ist jetzt fertig. Wir können diesen in das Produktivsystem transportieren, ohnedass der bisherige Report ```zangebote_abgesagt_legacy``` beeinträchtigt wird.
+Der Vergleichsreport ist jetzt fertig. Wir können diesen in das Produktivsystem transportieren, ohne dass der bisherige Report ```zangebote_abgesagt_legacy``` beeinträchtigt wird.
 Jetzt können wir beide Algorithmen mit den Produktivdaten vergleichen.
-Tretten keine unerwarteten Differenzen mehr auf, kann die Legacy Code Implementierung durch die Clean Code Implementierung ersetzt werden.
+Treten keine unerwarteten Differenzen mehr auf, kann die Legacy Code Implementierung durch die Clean Code Implementierung ersetzt werden.
 
