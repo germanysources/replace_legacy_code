@@ -173,10 +173,10 @@ LOOP AT mismatch ASSIGNING <mismatch>
   WRITE: 'Anzahl abgesagt', 'Anzahl gesamt', 'Nettopreis von', 'Nettopreis bis', 'Preiseinheit von', 'Preiseinheit bis'. NEW-LINE.
   WRITE: 'bisheriger Algorithmus'. NEW-LINE.
   WRITE: <mismatch>-alt-anzahl_abgesagt, <mismatch>-alt-anzahl_gesamt, <mismatch>-alt-netto_preis_von, <mismatch>-alt-netto_preis_bis,
-    <mismatch>-alt-netto_preis_bis, <mismatch>-alt-kpein_von, <mismatch>-alt-kpein_bis, <mismatch>-alt-kmein. NEW-LINE.
+    <mismatch>-alt-kpein_von, <mismatch>-alt-kpein_bis, <mismatch>-alt-kmein. NEW-LINE.
   WRITE: 'neuer Algorithmus'. NEW-LINE.
   WRITE: <mismatch>-neu-anzahl_abgesagt, <mismatch>-neu-anzahl_gesamt, <mismatch>-neu-netto_preis_von, <mismatch>-neu-netto_preis_bis,
-    <mismatch>-neu-netto_preis_bis, <mismatch>-neu-kpein_von, <mismatch>-neu-kpein_bis, <mismatch>-neu-kmein. NEW-LINE.
+    <mismatch>-neu-kpein_von, <mismatch>-neu-kpein_bis, <mismatch>-neu-kmein. NEW-LINE.
 
 ENDLOOP.
 
@@ -207,7 +207,7 @@ FORM vergleich_algorithmen USING alt_summe TYPE zangebote_abgesagt=>out_summe_ku
   " Vergleich
   LOOP AT alt_summe ASSIGNING <alt>.
     " READ TABLE Anweisung vergleicht nur die Felder des Primaerschluessels (zeichenartig).
-    " Die numerischen Felder muessen nochmals extra vergliechen werden.
+    " Die numerischen Felder muessen nochmals extra verglichen werden.
     READ TABLE neu_summe ASSIGNING <neu> FROM <alt>.
     IF sy-subrc <> 0.
       APPEND INITIAL LINE TO mismatch ASSIGNING <mismatch>.
@@ -221,8 +221,6 @@ FORM vergleich_algorithmen USING alt_summe TYPE zangebote_abgesagt=>out_summe_ku
   ENDLOOP.
 
   LOOP AT neu_summe ASSIGNING <neu>.
-    " READ TABLE Anweisung vergleicht nur die Felder des Primaerschluessels (zeichenartig).
-    " Die numerischen Felder muessen nochmals extra vergliechen werden.
     READ TABLE alt_summe ASSIGNING <alt> FROM <neu>.
     IF sy-subrc <> 0.
       APPEND INITIAL LINE TO mismatch ASSIGNING <mismatch>.
