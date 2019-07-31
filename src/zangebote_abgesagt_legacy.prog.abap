@@ -52,14 +52,14 @@ START-OF-SELECTION.
   LOOP AT lt_vbkd ASSIGNING <fs_vbkd>.
     SELECT * FROM vbak INTO ls_vbak
       WHERE vbeln = <fs_vbkd>-vbeln.
-     
+
       " anti-pattern Magic-Numbers
       CHECK ls_vbak-kunnr IN kunnr AND ls_vbak-vbtyp = 'B'.
 
       SELECT * FROM vbap INTO ls_vbap
         WHERE vbeln = ls_vbak-vbeln AND matnr IN matnr
         AND netpr > 0.
-        
+
         " anti-pattern Unit-Test fuer diese Logik ist nicht moeglich
         CLEAR ls_out.
         READ TABLE lt_outtab INTO ls_out WITH KEY
@@ -88,7 +88,7 @@ START-OF-SELECTION.
           ENDIF.
           h_netpr = ls_vbap-netpr / ls_vbap-kpein.
           " anti-pattern Einheitenumrechnung greift nur fuer 2 Einheiten,
-          " Ein Service, der alle Einheiten umrechnen kann, waehre wuenschenswert 
+          " Ein Service, der alle Einheiten umrechnen kann, waehre wuenschenswert
           " Umrechnung pro Stueck
           CASE ls_vbap-kmein.
             WHEN 'PAL'.
@@ -125,7 +125,7 @@ START-OF-SELECTION.
   LOOP AT lt_outtab INTO ls_out.
     h_tabix = sy-tabix.
 
-    ls_out-ver_abs = ls_out-anzahl_abgesagt / ls_out-anzahl_gesamt.
+    ls_out-ver_abs = ls_out-anzahl_abgesagt / ls_out-anzahl_gesamt * 100.
 
     SELECT SINGLE name1 FROM kna1 INTO ls_out-name_kunde
       WHERE kunnr = ls_out-kunnr.
@@ -135,7 +135,7 @@ START-OF-SELECTION.
 
   ENDLOOP.
   " anti-pattern fehlender Hinweis, wenn keine
-  " Angebote vorhanden sind	
+  " Angebote vorhanden sind
 
   ls_variant-report = sy-repid.
   ls_variant-variant = layout.

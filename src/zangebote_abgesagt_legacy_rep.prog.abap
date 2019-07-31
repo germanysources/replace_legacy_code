@@ -120,7 +120,7 @@ START-OF-SELECTION.
   LOOP AT lt_outtab INTO ls_out.
     h_tabix = sy-tabix.
 
-    ls_out-ver_abs = ls_out-anzahl_abgesagt / ls_out-anzahl_gesamt.
+    ls_out-ver_abs = ls_out-anzahl_abgesagt / ls_out-anzahl_gesamt * 100.
 
     SELECT SINGLE name1 FROM kna1 INTO ls_out-name_kunde
       WHERE kunnr = ls_out-kunnr.
